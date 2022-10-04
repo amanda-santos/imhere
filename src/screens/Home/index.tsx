@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Participant } from "../../components/Participant";
 
 import { styles } from "./styles";
 
@@ -24,6 +25,10 @@ export const Home = (): ReactElement => {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
+
+      <Participant name="Amanda Santos" />
+      <Participant name="John Doe" />
+      <Participant name="Jane Doe" />
     </View>
   );
 };
