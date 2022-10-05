@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
 import {
+  Alert,
   FlatList,
   Text,
   TextInput,
@@ -29,11 +30,25 @@ export const Home = (): ReactElement => {
   ];
 
   const handleAddParticipant = () => {
-    console.log("Add participant");
+    if (participants.includes("Amanda")) {
+      return Alert.alert(
+        "Participant exists",
+        "There is already a participant in the list with that name."
+      );
+    }
   };
 
   const handleRemoveParticipant = (name: string) => {
-    console.log("Remove participant", name);
+    Alert.alert("Remove", `Remove participant ${name}?`, [
+      {
+        text: "No",
+        style: "cancel",
+      },
+      {
+        text: "Yes",
+        onPress: () => Alert.alert("Removed", "The participant was removed."),
+      },
+    ]);
   };
 
   return (
@@ -60,7 +75,7 @@ export const Home = (): ReactElement => {
           <Participant
             key={item}
             name={item}
-            onRemove={handleRemoveParticipant}
+            onRemove={() => handleRemoveParticipant(item)}
           />
         )}
         showsVerticalScrollIndicator={false}
