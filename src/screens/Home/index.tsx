@@ -36,7 +36,10 @@ export const Home = (): ReactElement => {
       },
       {
         text: "Yes",
-        onPress: () => Alert.alert("Removed", "The participant was removed."),
+        onPress: () =>
+          setParticipants((prevState) =>
+            prevState.filter((participant) => participant !== name)
+          ),
       },
     ]);
   };
