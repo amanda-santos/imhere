@@ -13,7 +13,7 @@ import { Participant } from "../../components/Participant";
 import { styles } from "./styles";
 
 export const Home = (): ReactElement => {
-  const [participants, setParticipants] = useState(["Amanda"]);
+  const [participants, setParticipants] = useState<string[]>([]);
   const [newParticipantName, setNewParticipantName] = useState("");
 
   const handleAddParticipant = () => {
